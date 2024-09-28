@@ -1,0 +1,91 @@
+/*li {
+    display: inline-block;
+    
+}
+
+nav {
+    
+    padding-left:20px ;
+}
+
+
+
+
+html, body {
+   background-color: rgb(23, 26, 27);
+  
+
+    
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+footer {
+    color:white;
+}
+header{
+    padding-left:250px;  
+    color:white;
+    
+}
+a{
+  text-decoration: none;  
+  color: white;
+}
+#W2 {
+    padding-left:100px;
+    color: aqua;
+}
+.logo{
+    font-size:50px;
+}
+.desc{
+    font-size: 30px;
+    padding-left:300px;
+}
+
+.info-box {
+    display: none; /* Hide initially 
+}
+
+/* When content is loaded 
+body.loaded .info-box {
+    display: block;
+}
+
+/*New code*/
+.navbar {
+    display: flex;
+    justify-content: space-between;  /* Space between Home and Login */
+    align-items: center;  /* Vertically center items */
+    background-color: #333;  /* Dark background */
+    padding: 10px 20px;  /* Padding inside navbar */
+    color: white;  /* Text color */
+}
+
+/* Style for the buttons */
+.navbar button {
+    background-color: #4CAF50;  /* Green background */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Hover effect for buttons */
+.navbar button:hover {
+    background-color: #45a049;
+}
+
+/* Reset button margin */
+.navbar button {
+    margin: 0;
+}

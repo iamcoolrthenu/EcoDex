@@ -1,0 +1,93 @@
+.info {
+    display: flex;
+    justify-content: space-between;  /* Space between Home and Login */
+    align-items: center;  /* Vertically center items */
+    background-color: #333;  /* Dark background */
+    padding: 10px 20px;  /* Padding inside navbar */
+    color: white;  /* Text color */
+}
+
+/* Style for the buttons */
+.foundbox{
+    background-color: #4CAF50;  /* Green background */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.organizedbox button{
+    background-color: #4CAF50;  /* Green background */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.info button {
+    background-color: #4CAF50;  /* Green background */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Hover effect for buttons */
+.info button:hover {
+    background-color: #45a049;
+}
+
+/* Reset button margin */
+.info button {
+    margin: 0;
+}
+.section-75 {
+    background-color: #4CAF50;  /* Green background for 75% section */
+    width: 75%;
+    display: flex;
+    justify-content: center;  /* Center content horizontally */
+    align-items: center;  /* Center content vertically */
+    color: white;
+}
+
+/* Second section takes up 25% of the width */
+.section-25 {
+    background-color: #333;  /* Dark background for 25% section */
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Button styling inside the navbar */
+.info button {
+    background-color: #4CAF50;  /* Green background */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Optional button hover effect */
+.info button:hover {
+    text-decoration: underline;
+}
