@@ -29,34 +29,39 @@ def getDex(image, location):
     response = model.generate_content([prompt, file])
     species = response.text == "True"
 
-    if (not species):
-        prompt = f"""Give a give sources for what this object is"""
-        response = model.generate_content([prompt, file])
-        sources = response.text
-        realSpecies = False
-        desc = "N/A"
-        type = "N/A"
-        help = "N/A"
-        typeDesc = "N/A"
-        return realSpecies, desc, type, help, sources, typeDesc
+    #if (not species):
+#        prompt = f"""Give a give sources for what this object is"""
+#        response = model.generate_content([prompt, file])
+#        sources = response.text
+#        realSpecies = False
+#        desc = "N/A"
+#        type = "N/A"
+#        help = "N/A"
+#        typeDesc = "N/A"
+#        return realSpecies, desc, type, help, sources, typeDesc
     
-    prompt = "Give a short description of this species. Don't add any unnessary spaces or newlines."
+    prompt = f"""
+    I will give you multiple prompts, answer them and separate them with newlines. Here are the prompts: 
+    1. Only respond True or False to this image being a real plant or animal. Don't add any unnessary newlines.
+    2. Only respond True or False to there being a species in this image, it does not have to be real. Don't add any unnessary newlines.
+    3. Give a 3 sentence description of this species. Don't add any unnessary newlines.
+    4. Only respond with these descriptions based on this location of the animal, {location}: Native Species, Non-Harmful Invasive Species, Beneficial Invasive Species, Harmful Invasive Species (Control Required), Critical Invasive Species (Immediate Action), Endangered Species. Don't add any unnecessary newlines.
+    5. Give a 3 sentence explanation of how we can help this species based on location {location}. Don't add any unnecessary spaces or newlines.
+    """
     response = model.generate_content([prompt, file])
-    desc = response.text
 
-    prompt = f"""Only respond With these descriptions based on this location of the animal, {location} : Native Species, Non-Harmful Invasive Species, Beneficial Invasive Species, Harmful Invasive Species (Control Required), Critical Invasive Species (Immediate Action), Endangered Species. Don't add any unnessary spaces or newlines."""
-    response = model.generate_content([prompt, file])
-    type = response.text
+    responses = response.text.split("\n")
 
-    prompt = f"""Give a short explanation of how we can help this species based on location {location}. Don't add any unnessary spaces or newlines."""
-    response = model.generate_content([prompt, file])
-    help = response.text
+# Map the responses to specific variables
+    realSpecies = "True" in responses[0]  # Real plant or animal
+    species = "True" in responses[1]  # Species in image (real or not)
+    desc = responses[2]  # 3-sentence description
+    type = ""
+    for word in species_info:
+        if word in responses[3]:
+            type = word
+            break
+    help = responses[4]  # 3-sentence help explanation based on location
 
-    prompt = f"""Give a give sources for ways to help this species, descriptions of it, whether it being native or endangered or invasive based on the location: {location}"""
-    response = model.generate_content([prompt, file])
-    sources = response.text
-
-    typeDesc = species_info[type]
-
-    return realSpecies, desc, type, help, sources, typeDesc
-print(getDex("girl.png","Kanto"))
+# Print or manipulate the answers as needed
+    return realSpecies, species, desc, type, help
