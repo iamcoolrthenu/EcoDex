@@ -1,93 +1,200 @@
-.info {
-    display: flex;
-    justify-content: space-between;  /* Space between Home and Login */
-    align-items: center;  /* Vertically center items */
-    background-color: #333;  /* Dark background */
-    padding: 10px 20px;  /* Padding inside navbar */
-    color: white;  /* Text color */
-}
-
-/* Style for the buttons */
-.foundbox{
-    background-color: #4CAF50;  /* Green background */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.organizedbox button{
-    background-color: #4CAF50;  /* Green background */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.info button {
-    background-color: #4CAF50;  /* Green background */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* Hover effect for buttons */
-.info button:hover {
-    background-color: #45a049;
-}
-
-/* Reset button margin */
-.info button {
+body {
     margin: 0;
-}
-.section-75 {
-    background-color: #4CAF50;  /* Green background for 75% section */
-    width: 75%;
-    display: flex;
-    justify-content: center;  /* Center content horizontally */
-    align-items: center;  /* Center content vertically */
-    color: white;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#4b69b6, #aedcf0);
+    color: #333;
 }
 
-/* Second section takes up 25% of the width */
-.section-25 {
-    background-color: #333;  /* Dark background for 25% section */
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
+/* Header */
+header {
+    background-color: #5b7ff1
 
-/* Button styling inside the navbar */
-.info button {
-    background-color: #4CAF50;  /* Green background */
-    border: none;
-    color: white;
-    padding: 10px 20px;
+    ;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+    padding: 20px;
+    font-size: 24px;
+    color: white;
+    border-bottom: 4px solid #d5d5d5;
 }
 
-/* Optional button hover effect */
-.info button:hover {
-    text-decoration: underline;
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    position: fixed;
+    top: 100px;
+    bottom: 0;
+    right: 0;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 5px;
+    background-color: #f5e6be;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li.selected {
+    background-color: #d56666;
+    color: white;
+}
+
+.sidebar ul li:hover {
+    background-color: #e0cba7;
+}
+
+/* Main Content */
+.content {
+    margin-right: 270px; /* Adjust to prevent content overlap with the sidebar */
+    padding: 20px;
+}
+
+.content-box {
+    background-color: white;
+ws fh    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align content to the start */
+    gap: 20px; /* Space between description and image */
+}
+
+.content-box .description {
+    max-width: 100%; /* Make description take full width */
+    flex: 1;
+    font-size: 18px; /* Increase text size */
+}
+
+
+
+/* Image styles */
+.content-box img {
+    width: 100%; /* Make image take full width */
+    max-width: 500px; /* Limit max width to avoid too large scaling */
+    height: auto; /* Keep aspect ratio */
+    border-radius: 10px;
+    align-self: center; /* Center image horizontally */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .content {
+        margin-right: 220px; /
+    }
+
+    .content-box .description {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        margin-bottom: 20px; 
+    }
+
+    .content {
+        margin: 0; 
+        padding: 20px;
+    }
+
+    .content-box {
+        align-items: flex-start;
+    }
+
+    .content-box img {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .content-box .description {
+        margin-left: 0;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .content {
+        margin-right: 220px; 
+    }
+
+    .content-box img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .content-box .description {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        margin-bottom: 20px; /* Space between sidebar and content */
+    }
+
+    .content {
+        margin: 0; /* Remove margins to avoid overflow */
+        padding: 20px;
+    }
+
+    .content-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content-box img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .content-box .description {
+        margin-left: 0;
+    }
+}
+
+
+footer {
+    position: relative; 
+    width: 100%;
+    background-color: #ededed;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+footer a:hover {
+    color: #d56666;
 }
